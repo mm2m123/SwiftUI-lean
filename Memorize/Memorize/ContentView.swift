@@ -23,6 +23,7 @@ struct ContentView: View {
 struct CardView: View {
     var isFaceUp: Bool
     var body: some View {
+        
         ZStack {
             if isFaceUp {
                 RoundedRectangle(cornerRadius: 25, style: .continuous).stroke(lineWidth: 3.0)
