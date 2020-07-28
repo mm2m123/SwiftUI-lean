@@ -33,7 +33,9 @@ struct CardView: View {
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).fill().foregroundColor(.white)
                     Text(card.content)
                 }else{
-                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).fill()
+                    if !card.isMatched {
+                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).fill()
+                    }
                 }
             }
             .font(
