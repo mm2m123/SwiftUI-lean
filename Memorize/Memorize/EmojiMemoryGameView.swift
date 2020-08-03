@@ -29,12 +29,16 @@ struct CardView: View {
         GeometryReader(content: { geometry in
             ZStack {
                 if card.isFaceUp {
-                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).stroke(lineWidth: edgeLineWidth)
-                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).fill().foregroundColor(.white)
+                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                        .stroke(lineWidth: edgeLineWidth)
+                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                        .fill()
+                        .foregroundColor(.white)
                     Text(card.content)
                 }else{
                     if !card.isMatched {
-                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).fill()
+                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                            .fill()
                     }
                 }
             }
