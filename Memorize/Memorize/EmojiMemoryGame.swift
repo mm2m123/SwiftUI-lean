@@ -8,9 +8,16 @@
 import Foundation
 
 class EmojiMemoryGame {
-    private var model: MemoryGame<String>
+    private var model: MemoryGame<String> = createMemoryGame()
     
-    //MARK: - Access to model
+    static func createMemoryGame() -> MemoryGame<String> {
+        let emojis: Array<String> = ["😣", "😊", "😘"]
+        return MemoryGame<String>(numberOfPairsOfCards: 3) { pairIndex in
+            emojis[pairIndex]
+        }
+    }
+    
+    //MARK: - Access to the model
     var cards: Array<MemoryGame<String>.Card> {
         model.cards
     }
