@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         HStack {
             ForEach(0..<4) {_ in
-                CardView(isFaceUp: false)
+                CardView(isFaceUp: true)
             }
         }.padding()
     }
