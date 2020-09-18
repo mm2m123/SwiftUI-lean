@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    var viewModel: EmojiMemoryGameViewModel
+    @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
     var body: some View {
         HStack {
@@ -24,17 +24,25 @@ struct EmojiMemoryGameView: View {
 struct CardView: View {
     var card: MemoryGameModel<String>.Card
     var body: some View {
-        ZStack {
-            Text(card.content)
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: 25.0).stroke(Color.orange, lineWidth: 3.0)
-            }else{
-                RoundedRectangle(cornerRadius: 25.0).fill(Color.orange)
+        GeometryReader { geometry in
+            ZStack {
+                Text(card.content)
+                if card.isFaceUp {
+                    RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.orange, lineWidth: edgeLineWidth)
+                }else{
+                    RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
+                }
             }
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * fontScaleFactor))
+            .foregroundColor(.orange)
         }
-        .font(.largeTitle)
-        .foregroundColor(.orange)
     }
+    
+    // MARK: - Drawing Constants
+    let cornerRadius: CGFloat = 10.0
+    let edgeLineWidth: CGFloat = 3
+    let fontScaleFactor: CGFloat = 0.75
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -42,3 +50,4 @@ struct ContentView_Previews: PreviewProvider {
         EmojiMemoryGameView(viewModel: EmojiMemoryGameViewModel())
     }
 }
+
