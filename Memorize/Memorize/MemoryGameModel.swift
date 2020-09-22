@@ -12,7 +12,27 @@ import Foundation
 struct MemoryGameModel<CardContent> where CardContent: Equatable {
     var cards: Array<Card>
     //唯一一张被选中且卡面朝上的卡的index
-    var indexOfTheOneAndOnlyFaceUpCard: Int? = nil
+    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get {
+            cards.indices.filter {cards[$0].isFaceUp}.only
+//            for index in cards.indices {
+//                if cards[index].isFaceUp {
+//                    faceUpCardIndices.append(index)
+//                }
+//            }
+//            if faceUpCardIndices.count == 1 {
+//                return faceUpCardIndices[0]
+//            }else{
+//                return nil
+//            }
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = index == newValue
+
+            }
+        }
+    }
     
     mutating func choose(card: Card) {
         /**
@@ -29,18 +49,18 @@ struct MemoryGameModel<CardContent> where CardContent: Equatable {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
                 }
+                //翻转卡片
+                cards[chosenIndex].isFaceUp = true
                 //无论是否匹配，都将唯一一张被选中且卡面朝上的卡的index置为空
-                indexOfTheOneAndOnlyFaceUpCard = nil
+//                indexOfTheOneAndOnlyFaceUpCard = nil
             }else{
                 //当没有被选中的卡，则将所有卡片的卡面设置为朝下
-                for index in cards.indices {
-                    cards[index].isFaceUp = false
-                }
+//                for index in cards.indices {
+//                    cards[index].isFaceUp = false
+//                }
                 //将唯一一张被选中且卡面朝上的卡的index置为刚才选中的卡
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
-            //翻转卡片
-            cards[chosenIndex].isFaceUp = !cards[chosenIndex].isFaceUp
         }
     }
     

@@ -26,11 +26,12 @@ struct CardView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Text(card.content)
                 if card.isFaceUp {
-                    RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.orange, lineWidth: edgeLineWidth)
-                }else{
-                    RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
+                    RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
+                    RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+                    Text(card.content)
+                }else if !card.isMatched {
+                    RoundedRectangle(cornerRadius: cornerRadius).fill()
                 }
             }
             .font(font(size: geometry.size))
@@ -40,7 +41,7 @@ struct CardView: View {
     
     // MARK: - Drawing Constants
     let cornerRadius: CGFloat = 10.0
-    let edgeLineWidth: CGFloat = 3
+    let edgeLineWidth: CGFloat = 2
     func font(size: CGSize) -> Font {
         Font.system(size: min(size.width, size.height) * 0.75)
     }
