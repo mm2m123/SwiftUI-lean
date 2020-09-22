@@ -16,6 +16,7 @@
 		8D3EE17C24C831C600078478 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3EE17B24C831C600078478 /* GridLayout.swift */; };
 		8D42E94724FE6155000EC2A1 /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42E94624FE6155000EC2A1 /* EmojiMemoryGameView.swift */; };
 		8DC04C1625182762004824DF /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC04C1525182762004824DF /* Grid.swift */; };
+		8DE6AD702518B43400B35CE1 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6AD6F2518B43400B35CE1 /* Array+Identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8D3EE17B24C831C600078478 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		8D42E94624FE6155000EC2A1 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		8DC04C1525182762004824DF /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		8DE6AD6F2518B43400B35CE1 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				8DC04C1525182762004824DF /* Grid.swift */,
 				8D2F739B2507A363005C2882 /* EmojiMemoryGameViewModel.swift */,
 				8D2F73992507A12B005C2882 /* MemoryGameModel.swift */,
+				8DE6AD6F2518B43400B35CE1 /* Array+Identifiable.swift */,
 				8D3EE17B24C831C600078478 /* GridLayout.swift */,
 				8D09EA4824D26CFF00D80C8F /* Location.swift */,
 				8D103F2924B456BF00C13CA2 /* Assets.xcassets */,
@@ -160,6 +163,7 @@
 				8D103F2624B456BE00C13CA2 /* MemorizeApp.swift in Sources */,
 				8D3EE17C24C831C600078478 /* GridLayout.swift in Sources */,
 				8D2F739A2507A12B005C2882 /* MemoryGameModel.swift in Sources */,
+				8DE6AD702518B43400B35CE1 /* Array+Identifiable.swift in Sources */,
 				8D42E94724FE6155000EC2A1 /* EmojiMemoryGameView.swift in Sources */,
 				8D09EA4924D26CFF00D80C8F /* Location.swift in Sources */,
 				8D2F739C2507A363005C2882 /* EmojiMemoryGameViewModel.swift in Sources */,
