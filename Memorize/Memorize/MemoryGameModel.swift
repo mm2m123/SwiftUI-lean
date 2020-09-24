@@ -14,6 +14,12 @@ struct MemoryGameModel<CardContent> where CardContent: Equatable {
     //唯一一张被选中且卡面朝上的卡的index
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
+            /**
+             1.indices -> 索引/下标
+             2.filter -> 用于选择数组元素中满足某种条件的元素 aka 筛选    忽略了参数名而使用默认参数$0
+             
+             这里是找出cards里面isFaceUp = true 的元素的索引
+             */
             cards.indices.filter {cards[$0].isFaceUp}.only
 //            for index in cards.indices {
 //                if cards[index].isFaceUp {
@@ -35,6 +41,7 @@ struct MemoryGameModel<CardContent> where CardContent: Equatable {
     }
     
     mutating func choose(card: Card) {
+        print(cards.indices)
         /**
          1.let chosenIndex = cards.firstIndex(matching: card) -> 当cards能找到index，并将index赋值给chosenIndex
          2.!cards[chosenIndex].isFaceUp -> 所选中的卡片 卡面朝下
