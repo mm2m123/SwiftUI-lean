@@ -10,9 +10,9 @@ import Foundation
 // 原来CardContent是一个不在乎的类型，不能使用==
 // Equatable -> 用这个修饰后可以用 == 进行比较
 struct MemoryGameModel<CardContent> where CardContent: Equatable {
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     //唯一一张被选中且卡面朝上的卡的index
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
             /**
              1.indices -> 索引/下标
@@ -40,6 +40,7 @@ struct MemoryGameModel<CardContent> where CardContent: Equatable {
         }
     }
     
+    //默认情况下，实例方法中是不可以修改值类型的属性，使用mutating后可修改属性的值
     mutating func choose(card: Card) {
         print(cards.indices)
         /**
