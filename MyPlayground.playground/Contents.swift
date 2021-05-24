@@ -1,39 +1,37 @@
-import UIKit
-
-var str = "Hello, playground"
-print(str)
-func addNumber(num: Int) -> Int {
-    return num + 1
+protocol flyable {
+    func takeOff(speed: Int)
 }
 
-print(addNumber(num: 1))
+protocol armed {
+    func attack(auto: Bool)
+}
 
-func addTo(_ adder: Int) -> (Int) -> Int {
-    return {
-        num in
-        return num + adder
+struct Human {
+    var name = ""
+    var age = 0
+    var height = 0
+    
+    func shuoming() {
+        print("姓名:\(name)年龄:\(age)身高:\(height)")
     }
 }
 
-let addTwo = addTo(2)
 
-let result = addTwo(6)
+var tony = Human(name: "nnn", age: 12, height: 180)
+tony.shuoming()
 
-//let result2 = result(5)
+print(tony.name)
 
-
-func twoSum(nums: [Int], _ target: Int) -> Bool {
-    var set = Set<Int>()
-    
-    for num in nums {
-        if set.contains(target - num) {
-            return true
-        }
-        set.insert(num)
+extension Human: flyable, armed {
+    func takeOff(speed: Int) {
+        print("\(speed)")
     }
     
-    return false
+    func attack(auto: Bool) {
+        print(auto);
+    }
 }
 
-twoSum(nums: [1,2,3,4,5,6,7,8,9], 100)
+tony.takeOff(speed: 10)
+tony.attack(auto: true)
 
